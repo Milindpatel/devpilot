@@ -6,7 +6,7 @@
 
 Specialist subagents, one-command workflows and a safety guard. Review, test, debug, document and ship code the way a senior engineer would.
 
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/devpilot/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/devpilot/actions/workflows/ci.yml)
+[![CI](https://github.com/Milindpatel/devpilot/actions/workflows/ci.yml/badge.svg)](https://github.com/Milindpatel/devpilot/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-D97757)
 ![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)
@@ -78,7 +78,7 @@ Its decisions are covered by **72 tests**. If the hook receives input it can't p
 In Claude Code:
 
 ```
-/plugin marketplace add YOUR_GITHUB_USERNAME/devpilot
+/plugin marketplace add Milindpatel/devpilot
 /plugin install devpilot@devpilot-marketplace
 ```
 
@@ -87,7 +87,7 @@ Restart Claude Code, then type `/devpilot:` to see the commands.
 ### Try it locally without installing
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/devpilot.git
+git clone git@github.com:Milindpatel/devpilot.git
 ```
 
 ```bash

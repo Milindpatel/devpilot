@@ -6,7 +6,7 @@ so contributing is easy.
 ## Setup
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/devpilot.git
+git clone git@github.com:Milindpatel/devpilot.git
 cd devpilot
 npm test
 claude --plugin-dir ./plugins/devpilot
