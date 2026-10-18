@@ -1,0 +1,10 @@
+{
+  "name": "devpilot",
+  "version": "1.0.0",
+  "description": "An AI engineering teammate: specialist subagents, one-command workflows (review, ship, fix, test, onboard, PR) and a safety guard that blocks destructive commands.",
+  "author": {
+    "name": "Milind Patel"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "testing", "security", "debugging", "onboarding", "git", "safety"]
+}

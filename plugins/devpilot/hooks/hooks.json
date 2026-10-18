@@ -1,0 +1,17 @@
+{
+  "description": "DevPilot safety guard: denies catastrophic commands and asks before risky ones.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Read|Edit|MultiEdit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/guard.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Guard tests (Node ${{ matrix.node }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+
+  manifests:
+    name: Validate plugin structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JSON manifests parse
+        run: |
+          for f in .claude-plugin/marketplace.json plugins/devpilot/.claude-plugin/plugin.json plugins/devpilot/hooks/hooks.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" && echo "ok  $f"
+          done
+      - name: Check every agent, command and skill has frontmatter
+        run: |
+          status=0
+          for f in plugins/devpilot/agents/*.md plugins/devpilot/commands/*.md plugins/devpilot/skills/*/SKILL.md; do
+            head -n 1 "$f" | grep -q '^---$' || { echo "missing frontmatter: $f"; status=1; }
+            grep -q '^description:' "$f" || { echo "missing description: $f"; status=1; }
+          done
+          exit $status
+      - name: Validate with Claude Code
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude plugin validate ./plugins/devpilot
+          claude plugin validate .

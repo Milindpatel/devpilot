@@ -1,0 +1,15 @@
+{
+  "name": "devpilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevPilot: an AI engineering teammate plugin for Claude Code.",
+  "license": "MIT",
+  "author": "Milind Patel",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "node tests/guard.test.js",
+    "validate": "claude plugin validate ./plugins/devpilot && claude plugin validate ."
+  }
+}

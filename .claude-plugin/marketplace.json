@@ -1,0 +1,20 @@
+{
+  "name": "devpilot-marketplace",
+  "owner": {
+    "name": "Milind Patel"
+  },
+  "metadata": {
+    "description": "DevPilot: an AI engineering teammate for Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "devpilot",
+      "source": "./plugins/devpilot",
+      "description": "Specialist subagents, one-command workflows (review, ship, fix, test, onboard) and a safety guard for Claude Code.",
+      "version": "1.0.0",
+      "category": "development",
+      "keywords": ["code-review", "testing", "security", "debugging", "onboarding", "git"]
+    }
+  ]
+}
